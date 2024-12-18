@@ -111,7 +111,7 @@ sudo systemctl enable mongod
 
 # Configure MongoDB to bind to all IP addresses (0.0.0.0)
 # Update bind IP in MongoDB config file using "sed"
-sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/' /etc/mongod.conf
+
 
 # Restart MongoDB to apply changes
 sudo systemctl restart mongod
