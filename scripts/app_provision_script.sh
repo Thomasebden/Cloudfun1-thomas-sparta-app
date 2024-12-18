@@ -3,10 +3,13 @@
 #i need to check the script runs multiple times 
 
 #making the script idempotent
-cd  ~/sparta-app/app
+cd sparta-app/app
 pm2 stop app.js
-cd ~
-rm -rf ~/sparta-app
+cd ../..
+rm -rf sparta-app
+rm -rf repo
+rm -rf __MACOSX
+
 
 # update
 sudo apt update -y
@@ -35,13 +38,15 @@ sudo DEBIAN_FRONTEND=noninteractive apt install nodejs -y
 # install unzip
 sudo DEBIAN_FRONTEND=noninteractive apt install unzip -y
 
-# download sparta-app from github # use ramons github and remove the need to unzip. 
-git clone https://github.com/Thomasebden/sparta-app
+#If statement to chck if there is a present directory repo for 
 
-#git clone https://github.com/daraymonsta/tech201-sparta-app repo
+# download sparta-app from github # use ramons github and remove the need to unzip. 
+#git clone https://github.com/Thomasebden/sparta-app
+
+git clone https://github.com/daraymonsta/tech201-sparta-app repo
 
 # install pm2 globally
-#sudo npm install -g pm2
+sudo npm install -g pm2
 
 # cd into sparta-app
 cd sparta-app
@@ -65,13 +70,14 @@ cd app
 npm install
 
 # stop app if running 
-# pm2 stop app.js
+#pm2 stop app.js
+
 # idempotency
-#pm2 kill
+pm2 kill
 
 
 # start node.js app with pm2 -- name "my -sparta-app"
-#pm2 start app.js
+pm2 start app.js
 
 #check versions
 node.js -v
@@ -81,7 +87,7 @@ npm -v
 #node seeds/seed.js
 
 # start app
-npm start &
+#npm start &
 
 # show that the app is running
 

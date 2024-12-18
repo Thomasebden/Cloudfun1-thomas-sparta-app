@@ -5,10 +5,8 @@ you get the error you are trying to get a sceond app  instance to use port 3000 
 
 3. 
 find the linux command that allows you to find out the process using port 3000?
-netsat - tuplpn | grep : 3000
 
-which outputs 
-
+ ps aux | grep node
 
 
 3. fix error 
@@ -28,6 +26,32 @@ go to location and view
 sudo sed -i 's|try_files.*;|proxy_pass http://localhost:3000/;|' /etc/nginx/sites-available/default
 
 restart nginx 
+
+
+
+note from kip to make an exceutable script using nano 
+
+touch app_provision_script.sh
+
+nano app_provision_script.sh 
+
+copy and paste the script into the nano file
+
+press control x
+
+then press y
+
+then enter 
+
+then to make the file executable
+
+chmod +x app_provision_script.sh 
+
+to run the script 
+
+./app_provision_script.sh 
+
+this makes a file which I can run my code in
 
 
 
