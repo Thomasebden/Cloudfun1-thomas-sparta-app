@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#making the script idempotent
+cd  ~/sparta-app/app
+pm2 stop app.js
+cd ~
+rm -rf ~/sparta-app
+
 # update
 sudo apt update -y
 

@@ -6,7 +6,7 @@ sudo apt update -y
 # upgrade the system
 sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
 
-# Import the public key.
+# Install gnupg and curl.
 sudo DEBIAN_FRONTEND=noninteractive apt-get install gnupg curl
 
 #To import the MongoDB public GPG key, run the following command:
@@ -24,6 +24,7 @@ sudo apt-get update
 #You can install either the latest stable version of MongoDB or a specific version of MongoDB (we are using 7.6).
 sudo apt-get install -y mongodb-org=7.0.6 mongodb-org-database=7.0.6 mongodb-org-server=7.0.6 mongodb-mongosh mongodb-org-mongos=7.0.6 mongodb-org-tools=7.0.6
 
+# can be commented out 
 #Optional. Although you can specify any available version of MongoDB, apt-get will upgrade the packages when a newer version becomes available. To prevent unintended upgrades, you can pin the package at the currently installed version:
 echo "mongodb-org hold" | sudo dpkg --set-selections
 echo "mongodb-org-database hold" | sudo dpkg --set-selections
