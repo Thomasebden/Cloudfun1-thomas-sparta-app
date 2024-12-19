@@ -11,7 +11,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install gnupg curl
 
 #To import the MongoDB public GPG key, run the following command:
 curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
-   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+   sudo gpg --yes -o /usr/share/keyrings/mongodb-server-7.0.gpg \
    --dearmor
 
 #Create the list file /etc/apt/sources.list.d/mongodb-org-7.0.list for your version of Ubuntu.

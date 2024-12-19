@@ -15,7 +15,7 @@ use the kills command on the pid given by the netstat command
 
 
 
-proxy 
+reverse proxy 
 1. 
    
 2. sudo nano /etc/nginx/sites-available/default
@@ -29,7 +29,9 @@ restart nginx
 
 
 
-note from kip to make an exceutable script using nano 
+
+
+# note from kip to make an exceutable script using nano 
 
 touch app_provision_script.sh
 
@@ -39,7 +41,7 @@ copy and paste the script into the nano file
 
 press control x
 
-then press ycd 
+then press y
 then enter 
 
 then to make the file executable
