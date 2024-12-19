@@ -1,0 +1,61 @@
+#!/bin/bash
+
+#provision script
+#making the script idempotent
+rm -rf sparta-app
+
+# update
+sudo apt update -y
+
+# upgrade include debian
+sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
+
+# install nginx debian
+sudo DEBIAN_FRONTEND=noninteractive apt-get install nginx -y
+
+# Creates reverse proxy
+sudo sed -i 's|try_files.*;|proxy_pass http://localhost:3000/;|' /etc/nginx/sites-available/default
+
+# restart nginx
+sudo systemctl restart nginx
+
+# enable nginx
+sudo systemctl enable nginx
+
+# use curl to download the nodejs setup file
+curl -fsSL https://deb.nodesource.com/setup_20.x -o setup_nodejs.sh
+
+# run the setup file through bash
+sudo DEBIAN_FRONTEND=noninteractive bash setup_nodejs.sh
+
+# install nodejs
+sudo DEBIAN_FRONTEND=noninteractive apt install nodejs -y
+
+# download sparta-app from github # use ramons github and remove the need to unzip.
+git clone https://github.com/Thomasebden/sparta-app.git
+
+# install pm2 globally
+sudo npm install -g pm2
+
+# cd into sparta-app
+cd sparta-app/app
+
+# create a environment variable
+export DB_HOST=mongodb://10.0.3.4:27017/posts
+
+# install app
+npm install
+
+# idempotency
+pm2 kill
+
+# start node.js app with pm2
+pm2 start app.js
+
+# show that the app is running
+sleep 5
+if curl -s http://localhost:3000 > /dev/null; then
+    echo "App is running successfully on port 3000!"
+else
+    echo "Failed to start the app. Check logs for more details."
+fi

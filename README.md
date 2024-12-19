@@ -42,11 +42,6 @@ Changing the permissions
    README.md  app.js  models  node_modules  package-lock.json  package.json  public  seeds  test  views
    adminuser@cloudfun1-thomas-se-uks-sparta-app:~/nodejs20-sparta-test-app-2/app$ sudo npm install
    
-   > sparta-test-app@1.0.1 postinstall
-   > node seeds/seed.js
-   
-   
-   
    
    sudo apt update & sudo apt upgrade -y
    
