@@ -39,8 +39,7 @@ copy and paste the script into the nano file
 
 press control x
 
-then press y
-
+then press ycd 
 then enter 
 
 then to make the file executable
