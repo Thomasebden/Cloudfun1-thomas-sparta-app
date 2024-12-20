@@ -1,7 +1,10 @@
-# Creating Virtual Machines (VMs), Connecting VMs, Automating scripts to run an app on the internet, User Data & Imaging
+# Creating Virtual Machines (VMs), Connecting VMs, Automating scripts to run an app on the internet and User Data 
+#  By Thomas Ebden 
 
 ## Introduction 
 This Document will show my processes of creating and connecting Virtual Machine, creating script manually and automatically and setting up virtual machine using User Data and Imaging. I will first show how I created a Vitural Machine (VM) with Microsoft Azure and so on with the following steps to finish with Imaging. This document will show my process including blockers and obsticles, the purpose of this document is to enable the reader to be able follow the steps successfuly to be able to make a finished app with the created qualities.
+
+My scripts are contained within my "scripts file"
 
 # Creating Virtual Machines
 This section shows the process of creating VMs on Microsoft Azure. To create a two tier app, two virtual machines are needed, one to host the app and one to provide a working databse for the the app's "post" page.
